@@ -11,9 +11,34 @@
         <h1>To-Do Web App</h1>
     </div>
     <div class="inputSection">
-        <h2>Enter Task:</h2>
-        <input type="text" id="taskInput" placeholder="Enter a new task">
-        <button onclick="add()">Add Task</button>
+        <h2>Add New Task</h2>
+        <div class="input-row">
+            <input type="text" id="taskInput" placeholder="Enter a new task" onkeypress="if(event.key==='Enter') add()">
+            <select id="categorySelect">
+                <option value="Personal">Personal</option>
+                <option value="Work">Work</option>
+                <option value="School">School</option>
+            </select>
+            <select id="prioritySelect">
+                <option value="Low">Low Priority</option>
+                <option value="Medium">Medium Priority</option>
+                <option value="High">High Priority</option>
+            </select>
+            <button onclick="add()">Add Task</button>
+        </div>
+    </div>
+    <div class="filterSection">
+        <select id="categoryFilter" onchange="filterTasks()">
+            <option value="All">All Categories</option>
+            <option value="Personal">Personal</option>
+            <option value="Work">Work</option>
+            <option value="School">School</option>
+        </select>
+        <select id="statusFilter" onchange="filterTasks()">
+            <option value="All">All Tasks</option>
+            <option value="Pending">Pending</option>
+            <option value="Completed">Completed</option>
+        </select>
     </div>
     <ul id="taskList">
         <!-- Tasks will be added here dynamically -->
